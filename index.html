@@ -12,12 +12,46 @@
       content="此網站介紹過去70年來台灣經濟發展的重要政策及脈絡"
     />
     <link rel="stylesheet" href="./twicon/twicon.css" />
+
+    <!-- 載入google map -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC&display=swap"
       rel="stylesheet"
     />
+
+    <!-- 載入圖表 -->
+    <script
+      type="text/javascript"
+      src="https://www.gstatic.com/charts/loader.js"
+    ></script>
+    <script type="text/javascript">
+      google.charts.load("current", { packages: ["corechart"] });
+      google.charts.setOnLoadCallback(drawChart);
+
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ["Year", "Sales", "Expenses"],
+          ["2004", 1000, 400],
+          ["2005", 1170, 460],
+          ["2006", 660, 1120],
+          ["2007", 1030, 540],
+        ]);
+
+        var options = {
+          title: "Company Performance",
+          curveType: "function",
+          legend: { position: "bottom" },
+        };
+
+        var chart = new google.visualization.LineChart(
+          document.getElementById("curve_chart")
+        );
+
+        chart.draw(data, options);
+      }
+    </script>
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
@@ -32,7 +66,7 @@
     <nav>
       <ul>
         <li>
-          <a href="#"><i class="twicon-main-island"></i> 首頁</a>
+          <a class="active" href="#"><i class="twicon-main-island"></i> 首頁</a>
         </li>
         <li>
           <a href="./second.html"><i class="twicon-lovers-brg"></i> 農業發展</a>
@@ -60,6 +94,7 @@
           將經濟實體從農業轉變為高科技產業。
           在1960年代至1980年代期間，一系列嚴肅的新政策和發展計劃使台灣工業化。台灣國家統計局表示，1965年人均GDP為229美元，而30年後，1984年人均GDP增至3225美元。
         </p>
+        <br />
         <p>
           當R.O.C. 政府到達台灣後，他們所做的第一件事是一系列的土地政策。
           首先，他們修改了法案以減少與中國法案系統的聯繫，然後發行了台幣。
@@ -71,14 +106,28 @@
           這次是發展的第三步。
           該網站將討論台灣發生了什麼，台灣的政策和變化以及誰來幫助並使所有這些事情發揮作用。
         </p>
+        <br />
+        <div id="curve_chart" style="width: 900px; height: 500px"></div>
       </section>
       <section class="right">
-        <h4>台灣經濟發展小知識:</h4>
+        <h4>
+          台灣經濟發展小知識:<br />
+          你知道台灣在哪裡嗎?
+        </h4>
+
         <p>
           台灣是太平洋上的一個小島。
           它毗鄰中國，在島上的原住民被認為是太平洋群島南島語族語系人民的起源。
           台灣的陸地面積為13972公里，島上約有2380萬人居住，最主要通用語言為中文、閩南語、客家話。
         </p>
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3747434.9609519555!2d117.83992990465052!3d23.474728188034696!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x346ef3065c07572f%3A0xe711f004bf9c5469!2z5Y-w54Gj!5e0!3m2!1szh-TW!2stw!4v1625391353139!5m2!1szh-TW!2stw"
+          width="280"
+          height="280"
+          style="border: 0"
+          allowfullscreen=""
+          loading="lazy"
+        ></iframe>
       </section>
     </main>
   </body>

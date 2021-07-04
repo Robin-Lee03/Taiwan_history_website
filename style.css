@@ -36,10 +36,15 @@ nav ul li {
 }
 
 nav ul li a {
-  color: white;
+  color: rgb(168, 164, 164);
   text-decoration: none;
   /* 預設的text-decoration有底線 */
   font-size: 1.25rem;
+  transition: all 0.2s ease;
+}
+
+nav ul li a:hover {
+  color: rgb(255, 255, 255);
 }
 
 .h3text {
@@ -48,4 +53,33 @@ nav ul li a {
 
 .headertext {
   font-size: 2.5rem;
+}
+
+main {
+  width: 100%;
+  display: flex;
+}
+
+section.left,
+scction.right {
+  padding: 1rem;
+}
+
+section.right h4 {
+  font-size: 1.25rem;
+  text-align: center;
+}
+
+section.right {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+section.right p {
+  margin: 1rem 0rem;
+}
+
+.active {
+  color: white;
 }
